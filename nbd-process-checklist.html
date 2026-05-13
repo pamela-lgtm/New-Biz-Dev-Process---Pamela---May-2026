@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Business Development Process · Verandah Properties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #008C82;
+    --teal-deep: #005F58;
+    --teal-mist: #E8F3F2;
+    --gold: #D4AF50;
+    --gold-soft: #F5EBD0;
+    --gold-deep: #7A5E1A;
+    --ink: #1A2E2C;
+    --slate: #4A5D5B;
+    --mist: #8B9A98;
+    --paper: #FAF8F3;
+    --paper-warm: #F3EFE4;
+    --line: #E2DED2;
+    --line-soft: #EFEBE0;
+    --success: #4A7C59;
+    --success-bg: #E5EFE8;
+    --warn: #B8842F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    opacity: 0.025; z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+  /* HEADER */
+  header.top {
+    padding: 56px 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  h1 em { font-style: italic; color: var(--teal); font-weight: 400; }
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--slate);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  /* CLIENT BAR */
+  .client-bar {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin: 28px 0 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 18px;
+    align-items: end;
+  }
+  .client-field { display: flex; flex-direction: column; gap: 6px; }
+  .client-field label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .client-field input {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--line);
+    padding: 6px 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .client-field input:focus { border-bottom-color: var(--teal); }
+  .client-field input::placeholder { color: var(--mist); font-style: italic; }
+
+  .client-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .client-controls button {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--slate);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .client-controls button:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .client-controls button.primary {
+    background: var(--teal);
+    color: white;
+    border-color: var(--teal);
+  }
+  .client-controls button.primary:hover {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+  }
+  .client-controls button.danger:hover {
+    background: #8B3A2F;
+    border-color: #8B3A2F;
+  }
+
+  /* CLIENT SELECTOR */
+  .client-selector {
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 16px 22px;
+    margin: 12px 0 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .client-selector-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-right: 6px;
+  }
+  .client-chip {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .client-chip:hover {
+    border-color: var(--teal);
+    color: var(--teal-deep);
+  }
+  .client-chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .client-chip .progress {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .client-chip.active .progress {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .client-empty {
+    font-style: italic;
+    color: var(--mist);
+    font-size: 13px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin: 0 0 32px;
+  }
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .progress-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .progress-stats {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--teal-deep);
+    letter-spacing: 0.05em;
+  }
+  .progress-stats strong { color: var(--teal); font-size: 20px; font-weight: 700; }
+  .progress-bar-bg {
+    height: 8px;
+    background: var(--line-soft);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* SECTION */
+  section.checklist-section {
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  section.checklist-section:first-of-type {
+    border-top: none;
+    padding-top: 16px;
+    margin-top: 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold);
+    line-height: 0.9;
+    flex-shrink: 0;
+  }
+  .section-meta { flex: 1; min-width: 0; }
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .section-desc {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.55;
+    max-width: 640px;
+  }
+  .section-phase {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    background: var(--gold-soft);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-top: 8px;
+  }
+  .section-complete-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--success);
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: none;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+  section.checklist-section.complete .section-complete-badge { display: inline-block; }
+  section.checklist-section.complete .section-num { color: var(--success); }
+
+  /* TASK LIST */
+  .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .task {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.2s;
+  }
+  .task:hover { border-color: var(--teal); }
+  .task.done {
+    background: var(--success-bg);
+    border-color: var(--success);
+  }
+  .task.done .task-title {
+    color: var(--slate);
+    text-decoration: line-through;
+    text-decoration-color: var(--mist);
+  }
+  .task.done .task-detail { color: var(--mist); }
+
+  .task-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gold);
+    border-radius: 2px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-top: 1px;
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+  }
+  .task-checkbox:hover { border-color: var(--teal); }
+  .task-checkbox:checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .task-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .task-content { min-width: 0; }
+  .task-title {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 3px;
+  }
+  .task-detail {
+    font-size: 13.5px;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+  .task-detail strong { color: var(--ink); font-weight: 600; }
+  .task-detail em { color: var(--gold-deep); font-style: italic; }
+
+  .task-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mist);
+    text-align: right;
+    flex-shrink: 0;
+    line-height: 1.45;
+    min-width: 0;
+  }
+  .task-meta .timestamp {
+    color: var(--success);
+    font-weight: 600;
+    display: none;
+  }
+  .task.done .task-meta .timestamp { display: block; }
+
+  /* PRINT */
+  @media print {
+    body::before { display: none; }
+    .client-bar, .client-selector, .client-controls { display: none; }
+    .progress-card, section.checklist-section { break-inside: avoid; }
+    .task { break-inside: avoid; }
+    body { background: white; }
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 0 20px; }
+    .client-bar { grid-template-columns: 1fr; }
+    .client-controls { flex-direction: row; }
+    .section-header { flex-direction: column; gap: 4px; }
+    .section-num { font-size: 32px; }
+    .section-title { font-size: 23px; }
+    .task { grid-template-columns: 24px 1fr; }
+    .task-meta { grid-column: 1 / -1; padding-left: 38px; text-align: left; }
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 72px;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">Verandah Properties · Pamela Syvertson</div>
+    <h1>New Business Development<br><em>Process Checklist</em></h1>
+    <p class="subtitle">From first lead through marketing launch — every task in your role, tracked for every client. Check items off as you complete them. Progress saves automatically to this device.</p>
+  </header>
+
+  <!-- CLIENT BAR -->
+  <div class="client-bar">
+    <div class="client-field">
+      <label for="client-name">Owner Name</label>
+      <input type="text" id="client-name" placeholder="e.g., Smith Family">
+    </div>
+    <div class="client-field">
+      <label for="client-property">Property Address</label>
+      <input type="text" id="client-property" placeholder="e.g., 14523 Loblolly Lane, Orlando FL 32827">
+    </div>
+    <div class="client-controls">
+      <button class="primary" id="new-client-btn">+ New Client</button>
+      <button id="save-client-btn">Save</button>
+      <button class="danger" id="delete-client-btn">Delete</button>
+    </div>
+  </div>
+
+  <!-- CLIENT SELECTOR -->
+  <div class="client-selector" id="client-selector">
+    <span class="client-selector-label">Clients</span>
+    <span class="client-empty" id="client-empty">No saved clients yet — enter an owner's name above and click Save.</span>
+  </div>
+
+  <!-- PROGRESS CARD -->
+  <div class="progress-card">
+    <div class="progress-header">
+      <div class="progress-title">Overall Progress</div>
+      <div class="progress-stats">
+        <strong id="stat-done">0</strong> of <span id="stat-total">0</span> tasks complete · <span id="stat-pct">0</span>%
+      </div>
+    </div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1 — LEAD PIPELINE & QUALIFICATION -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="01">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Lead Pipeline & Qualification</div>
+        <div class="section-title">Personality-fit qualification before any commitment</div>
+        <div class="section-desc">Owns the entire lead pipeline — inquiries, MLS-monitoring outreach, referrals, sourced leads. Decides whether Verandah is the right fit using DISC and pattern recognition.</div>
+        <span class="section-phase">Pre-PMA</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="01-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Lead intake &amp; first contact</div>
+          <div class="task-detail">Capture inquiry source (Google, referral, BBB, MLS, etc.) and log in pipeline. Initial reply within 24 hours, tailored to lead's tone.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="01-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">DISC profile signals &amp; personality-fit read</div>
+          <div class="task-detail">Identify whether this owner is a strong fit for Verandah's white-glove model. Target S and C profiles; flag D leads for careful management.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="01-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Pipeline categorization</div>
+          <div class="task-detail">Place in Hot (within 60 days), Warm Nurture (monthly touchpoints), Archive, or hidden former-owner/MLS-monitoring with 60- and 120-day outreach triggers.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="01-4">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Custom outreach &amp; nurture</div>
+          <div class="task-detail">No templates, no generic scripts. Every conversation tailored to this owner's personality and situation. Document decisions and outreach in pipeline notes.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2 — PRE-MANAGEMENT ENGAGEMENT -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="02">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Pre-Management Engagement</div>
+        <div class="section-title">Pre-Management Prep Form &amp; pricing strategy</div>
+        <div class="section-desc">When the lead is emotionally signaling "yes," send the Pre-Management Prep Form, finalize pricing, and prepare the management agreement.</div>
+        <span class="section-phase">Pre-PMA</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="02-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Send Pre-Management Prep Form (Jotform)</div>
+          <div class="task-detail">Captures foundational property details and tests owner engagement. Signal of real commitment.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="02-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Complete rental price analysis</div>
+          <div class="task-detail">Use Stellar MLS + CoreLogic 360 Property View data. Build CMA if appropriate. Set rental price.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="02-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm accompanied-showings preference</div>
+          <div class="task-detail">During PMA-stage conversation, identify whether the owner wants Linda to personally accompany prospects on Lake Nona showings. <em>Will be relayed to Linda once the agreement is signed.</em></div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="02-4">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Negotiate &amp; sign management agreement</div>
+          <div class="task-detail">Final pricing, customization, signatures collected. Confirm bundle level (Gold vs. Platinum) and any exceptions.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3 — POST-PMA CELEBRATION & ONBOARDING -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="03">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Post-PMA Celebration &amp; Onboarding</div>
+        <div class="section-title">One comprehensive welcome email</div>
+        <div class="section-desc">Single email post-PMA: celebrates the milestone, introduces team, sends New Owner Onboarding Form, snapshots journey, links to confetti celebration page.</div>
+        <span class="section-phase">Phase 01 · Welcome</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="03-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Send the Welcome &amp; Onboarding email</div>
+          <div class="task-detail">Comprehensive single email — celebrates milestone, introduces Linda + broader team, includes New Owner Onboarding Form, snapshots journey, links to Welcome &amp; Journey landing page (confetti). CC Linda.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="03-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Relay accompanied-showings expectation to Linda (if applicable)</div>
+          <div class="task-detail">For Lake Nona properties where the owner wants Linda's in-person presence at showings, relay this expectation to Linda the day the PMA is signed so she can plan accordingly.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="03-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm owner received the email + onboarding form is in motion</div>
+          <div class="task-detail">Watch for owner read/open signal. Follow up gently within 48 hours if onboarding form isn't yet submitted.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4 — APPFOLIO SKELETON SETUP -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="04">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">AppFolio Skeleton Setup</div>
+        <div class="section-title">Owner Page + Property Page basics</div>
+        <div class="section-desc">Build the AppFolio foundation the team fully populates from. Tags for source &amp; communication preference. Lake Nona Property Group assignment. Document attachments.</div>
+        <span class="section-phase">Phase 01 · Internal</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="04-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Build AppFolio Owner Page skeleton</div>
+          <div class="task-detail">Owner name, phone, email, physical address, temporary tax ID placeholder (999-99-9999 until W-9 received).</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Add AppFolio Tags: Source &amp; Communication Preference</div>
+          <div class="task-detail"><strong>Source tag:</strong> how they heard about Verandah (Google, Referral, BBB, MLS, etc.). <strong>Communication preference tag:</strong> per the management agreement (Email, Text, Phone). <em>Both filterable in reports.</em></div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Build AppFolio Property Page skeleton</div>
+          <div class="task-detail">Property title, type, address, county, year built, bed/bath, square footage, reserve amount, management/leasing/renewal fees, late fee %, $500 maintenance limit, bank account assignments.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-4">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Attach documents to Property Page</div>
+          <div class="task-detail">Signed PMA + Pre-Management Prep Form + New Owner Onboarding Form. All searchable in the Property Page record going forward.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-5">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Add to Lake Nona Property Group (if applicable)</div>
+          <div class="task-detail">For Lake Nona properties only — enables territory-specific reporting and oversight.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-6">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Forward signed PMA to Athenée &amp; Megan</div>
+          <div class="task-detail">Athenée files; Megan reviews for operational flags.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="04-7">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm SureVestor PP Bundle status with Athenée</div>
+          <div class="task-detail">Default: added to bundle once leased. <strong>Exception:</strong> Gold-only PMAs (e.g., Ewald) — Pamela proactively notifies Athenée NOT to add.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5 — OWNER PORTAL ACTIVATION -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="05">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Owner Portal Activation</div>
+        <div class="section-title">Activated before Rently &amp; walkthrough</div>
+        <div class="section-desc">Once AppFolio spine is built, trigger portal activation. Owner gets immediate visibility into their account while everything else unfolds in parallel.</div>
+        <span class="section-phase">Phase 02 · Portal</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="05-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Trigger AppFolio Owner Portal activation email</div>
+          <div class="task-detail">System-generated activation email sends to owner.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="05-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Send owner the Portal Setup Guide email</div>
+          <div class="task-detail">Friendly branded walkthrough complementing the AppFolio system email. Link to the Owner Portal Setup Guide; mention 2FA setup, two statements per month, what they'll see.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="05-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm successful activation in AppFolio</div>
+          <div class="task-detail">Verify owner has created password &amp; completed 2FA setup. If stuck, follow up with a personal touch.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 6 — RENTLY LOCKBOX COORDINATION -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="06">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Rently Lockbox Coordination</div>
+        <div class="section-title">Order, install, and confirm key placement</div>
+        <div class="section-desc">Coordinate with Megan to order the lockbox; send owner the access guide; confirm key placed.</div>
+        <span class="section-phase">Phase 03 · Lockbox</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="06-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Ask Megan to order Rently lockbox</div>
+          <div class="task-detail">Quick internal message with property address. Megan handles ordering &amp; vendor install.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="06-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Send owner the Rently Lockbox Access Guide email</div>
+          <div class="task-detail">Heads-up that the box is being installed, reassurance that the box arrives empty, link to the guide, instructions on placing the key + written confirmation expected.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="06-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Receive written confirmation that key is placed</div>
+          <div class="task-detail">Non-negotiable checkpoint. Once received, Megan tests access from her end and documents in AppFolio.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 7 — WALKTHROUGH HANDOFF -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="07">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Walkthrough Coordination</div>
+        <div class="section-title">Linda visits (Lake Nona) or Megan schedules vendor (out-of-region)</div>
+        <div class="section-desc">Coordinate the path. Linda owns Lake Nona walkthroughs; Megan owns vendor coordination for out-of-region.</div>
+        <span class="section-phase">Phase 04 · Walkthrough</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="07-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm walkthrough path: Linda or vendor</div>
+          <div class="task-detail">Lake Nona → Linda visits. Outside region → Megan coordinates vendor.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="07-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Receive completed walkthrough form</div>
+          <div class="task-detail">Linda submits while on site for Lake Nona; vendor submits to Megan for out-of-region. Use data to finish populating AppFolio Property Page.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="07-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm Key/Remote Packet placement</div>
+          <div class="task-detail">Linda texts Pamela either (a) where she placed the envelope, or (b) that she instructed the owner on placement. Document location in AppFolio.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="07-4">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Populate AppFolio Property Page with walkthrough data</div>
+          <div class="task-detail">Appliances, fixtures, flooring, finishes, model/serial numbers — all from the walkthrough form into the page.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 8 — MARKETING LAUNCH -->
+  <!-- ============================================================ -->
+  <section class="checklist-section" data-section="08">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-meta">
+        <div class="section-eyebrow">Marketing Launch</div>
+        <div class="section-title">Title &amp; description, handoff to Marketing Manager, owner notification</div>
+        <div class="section-desc">Pamela writes listing title &amp; description in brand voice; Marketing Manager publishes &amp; syndicates; Pamela emails owner with live links + overview.</div>
+        <span class="section-phase">Phase 05 · Marketing</span>
+      </div>
+      <span class="section-complete-badge">✓ Complete</span>
+    </div>
+    <ul class="task-list">
+      <li class="task" data-task="08-1">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm rent-ready status with owner</div>
+          <div class="task-detail">Property clean, repairs complete, walkthrough done, marketing materials in hand. Owner confirms ready for listing to go live.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="08-2">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Write listing title &amp; description in brand voice</div>
+          <div class="task-detail">Done after marketing photos are in hand (not in the first AppFolio pass). Brand-voice copy that reflects the property and Verandah's positioning.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="08-3">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Hand listing description + materials to Marketing Manager</div>
+          <div class="task-detail">Forward title, description, marketing photos, and any property-specific notes (subdivision-related photos to add, special features, etc.).</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="08-4">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Confirm listing is live + syndication confirmed</div>
+          <div class="task-detail">Marketing Manager reports back: AppFolio public link + Zillow/Trulia/Apartments.com + MLS all confirmed live. Collect all live links.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="08-5">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Email owner: marketing launch &amp; live links</div>
+          <div class="task-detail">Celebratory note with all live listing links, mention Marketing Manager &amp; MLS coverage, reintroduce Linda as primary contact going forward. Mention accompanied showings if applicable for this owner.</div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+      <li class="task" data-task="08-6">
+        <input type="checkbox" class="task-checkbox">
+        <div class="task-content">
+          <div class="task-title">Internal handoff: brief Linda</div>
+          <div class="task-detail">Linda is now the owner's primary contact for showings, feedback, applications, price conversations. <strong>This is her 5-star moment.</strong></div>
+        </div>
+        <div class="task-meta"><span class="timestamp"></span></div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Verandah Properties</div>
+    <div class="footer-meta">New Business Development · Internal Process Checklist</div>
+  </footer>
+
+</div>
+
+<script>
+// ============================================================
+// PERSISTENT PER-CLIENT CHECKLIST
+// ============================================================
+const STORAGE_KEY = 'verandah-nbd-clients-v1';
+
+let state = {
+  activeClientId: null,
+  clients: {}  // { clientId: { name, property, tasks: {taskId: timestamp}, created } }
+};
+
+// ---- Persistence ----
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state = JSON.parse(raw);
+  } catch (e) { console.error('Load failed', e); }
+  if (!state.clients) state.clients = {};
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { console.error('Save failed', e); }
+}
+
+// ---- Client management ----
+function newClientId() {
+  return 'c_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+function createNewClient() {
+  // Save current first if there's name + property
+  saveCurrentInputs();
+  const id = newClientId();
+  state.clients[id] = {
+    name: '',
+    property: '',
+    tasks: {},
+    created: new Date().toISOString()
+  };
+  state.activeClientId = id;
+  saveState();
+  renderEverything();
+  document.getElementById('client-name').focus();
+}
+
+function saveCurrentInputs() {
+  if (!state.activeClientId) return;
+  const c = state.clients[state.activeClientId];
+  if (!c) return;
+  c.name = document.getElementById('client-name').value.trim();
+  c.property = document.getElementById('client-property').value.trim();
+  saveState();
+}
+
+function saveCurrentClient() {
+  if (!state.activeClientId) {
+    // Create a new client from the current inputs
+    const name = document.getElementById('client-name').value.trim();
+    const property = document.getElementById('client-property').value.trim();
+    if (!name && !property) {
+      alert('Enter an owner name or property address before saving.');
+      return;
+    }
+    const id = newClientId();
+    state.clients[id] = {
+      name, property, tasks: {}, created: new Date().toISOString()
+    };
+    state.activeClientId = id;
+  } else {
+    saveCurrentInputs();
+  }
+  saveState();
+  renderClientSelector();
+  flashSaved();
+}
+
+function flashSaved() {
+  const btn = document.getElementById('save-client-btn');
+  const orig = btn.textContent;
+  btn.textContent = '✓ Saved';
+  setTimeout(() => { btn.textContent = orig; }, 1200);
+}
+
+function deleteCurrentClient() {
+  if (!state.activeClientId) return;
+  const c = state.clients[state.activeClientId];
+  const label = c.name || c.property || 'this client';
+  if (!confirm(`Delete "${label}" and all checklist data? This cannot be undone.`)) return;
+  delete state.clients[state.activeClientId];
+  state.activeClientId = null;
+  saveState();
+  // Switch to most recent if any exist
+  const ids = Object.keys(state.clients);
+  if (ids.length) {
+    state.activeClientId = ids.sort((a, b) =>
+      (state.clients[b].created || '').localeCompare(state.clients[a].created || '')
+    )[0];
+    saveState();
+  }
+  renderEverything();
+}
+
+function switchClient(id) {
+  saveCurrentInputs();
+  state.activeClientId = id;
+  saveState();
+  renderEverything();
+}
+
+// ---- Task management ----
+function getActiveTasks() {
+  if (!state.activeClientId) return {};
+  const c = state.clients[state.activeClientId];
+  if (!c) return {};
+  if (!c.tasks) c.tasks = {};
+  return c.tasks;
+}
+
+function toggleTask(taskId, checked) {
+  if (!state.activeClientId) {
+    // Auto-create a client if user starts checking without one
+    const name = document.getElementById('client-name').value.trim();
+    const property = document.getElementById('client-property').value.trim();
+    const id = newClientId();
+    state.clients[id] = {
+      name: name || 'Unnamed Client',
+      property,
+      tasks: {},
+      created: new Date().toISOString()
+    };
+    state.activeClientId = id;
+  }
+  const tasks = getActiveTasks();
+  if (checked) {
+    tasks[taskId] = new Date().toISOString();
+  } else {
+    delete tasks[taskId];
+  }
+  saveState();
+  renderTaskStates();
+  renderProgress();
+  renderClientSelector();
+}
+
+// ---- Rendering ----
+function renderClientFields() {
+  const nameInput = document.getElementById('client-name');
+  const propInput = document.getElementById('client-property');
+  if (state.activeClientId && state.clients[state.activeClientId]) {
+    const c = state.clients[state.activeClientId];
+    nameInput.value = c.name || '';
+    propInput.value = c.property || '';
+  } else {
+    nameInput.value = '';
+    propInput.value = '';
+  }
+}
+
+function clientLabel(c) {
+  if (c.name && c.property) return c.name;
+  return c.name || c.property || 'Unnamed';
+}
+
+function clientProgress(c) {
+  const total = document.querySelectorAll('.task-checkbox').length;
+  const done = Object.keys(c.tasks || {}).length;
+  return { done, total, pct: total ? Math.round((done / total) * 100) : 0 };
+}
+
+function renderClientSelector() {
+  const sel = document.getElementById('client-selector');
+  const ids = Object.keys(state.clients).sort((a, b) =>
+    (state.clients[b].created || '').localeCompare(state.clients[a].created || '')
+  );
+
+  // Clear all child nodes except the label
+  while (sel.childNodes.length > 1) sel.removeChild(sel.lastChild);
+
+  if (!ids.length) {
+    const empty = document.createElement('span');
+    empty.className = 'client-empty';
+    empty.textContent = 'No saved clients yet — enter an owner\'s name above and click Save.';
+    sel.appendChild(empty);
+    return;
+  }
+
+  ids.forEach(id => {
+    const c = state.clients[id];
+    const chip = document.createElement('span');
+    chip.className = 'client-chip' + (id === state.activeClientId ? ' active' : '');
+    chip.title = c.property || '';
+
+    const labelText = document.createTextNode(clientLabel(c));
+    chip.appendChild(labelText);
+
+    const p = clientProgress(c);
+    const progEl = document.createElement('span');
+    progEl.className = 'progress';
+    progEl.textContent = `${p.done}/${p.total}`;
+    chip.appendChild(progEl);
+
+    chip.addEventListener('click', () => switchClient(id));
+    sel.appendChild(chip);
+  });
+}
+
+function renderTaskStates() {
+  const tasks = getActiveTasks();
+  document.querySelectorAll('.task').forEach(taskEl => {
+    const id = taskEl.dataset.task;
+    const cb = taskEl.querySelector('.task-checkbox');
+    const ts = taskEl.querySelector('.timestamp');
+    if (tasks[id]) {
+      cb.checked = true;
+      taskEl.classList.add('done');
+      ts.textContent = 'Done · ' + formatDate(tasks[id]);
+    } else {
+      cb.checked = false;
+      taskEl.classList.remove('done');
+      ts.textContent = '';
+    }
+  });
+  renderSectionStates();
+}
+
+function renderSectionStates() {
+  document.querySelectorAll('section.checklist-section').forEach(sec => {
+    const tasks = sec.querySelectorAll('.task');
+    const allDone = Array.from(tasks).every(t => t.classList.contains('done'));
+    sec.classList.toggle('complete', allDone && tasks.length > 0);
+  });
+}
+
+function renderProgress() {
+  const all = document.querySelectorAll('.task-checkbox');
+  const total = all.length;
+  const done = Array.from(all).filter(c => c.checked).length;
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-pct').textContent = pct;
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function renderEverything() {
+  renderClientFields();
+  renderClientSelector();
+  renderTaskStates();
+  renderProgress();
+}
+
+function formatDate(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  } catch { return ''; }
+}
+
+// ---- Wire up ----
+document.addEventListener('DOMContentLoaded', () => {
+  loadState();
+
+  // If there's no active client but clients exist, pick most recent
+  if (!state.activeClientId && Object.keys(state.clients).length) {
+    state.activeClientId = Object.keys(state.clients).sort((a, b) =>
+      (state.clients[b].created || '').localeCompare(state.clients[a].created || '')
+    )[0];
+    saveState();
+  }
+
+  renderEverything();
+
+  // Checkboxes
+  document.querySelectorAll('.task-checkbox').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const taskId = cb.closest('.task').dataset.task;
+      toggleTask(taskId, cb.checked);
+    });
+  });
+
+  // Buttons
+  document.getElementById('new-client-btn').addEventListener('click', createNewClient);
+  document.getElementById('save-client-btn').addEventListener('click', saveCurrentClient);
+  document.getElementById('delete-client-btn').addEventListener('click', deleteCurrentClient);
+
+  // Auto-save inputs on blur
+  document.getElementById('client-name').addEventListener('blur', saveCurrentInputs);
+  document.getElementById('client-property').addEventListener('blur', saveCurrentInputs);
+  document.getElementById('client-name').addEventListener('input', () => {
+    if (state.activeClientId) renderClientSelector();
+  });
+});
+</script>
+
+</body>
+</html>
